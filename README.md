@@ -1,158 +1,291 @@
-👩‍🦰 Women Safety Analytics – Protecting Women from Safety Threats
+Project Title
 
-📌 Overview
+Women Safety Analytics – Protecting Women from Safety Threats
 
-Women Safety Analytics is a smart safety monitoring system designed to enhance women's security through technology. The system provides emergency SOS alerts, real-time location tracking, incident reporting, emergency contact notifications, and safety analytics. It helps women receive immediate assistance during emergencies while enabling authorities and administrators to analyze safety trends and improve response mechanisms.
+Problem Statement
 
-🎯 Objective
+Women often face safety risks such as harassment, stalking, violence, and emergency situations in public and private environments. Existing safety solutions lack integrated features like real-time location tracking, instant SOS alerts, emergency contact notifications, and incident reporting. There is a need for a digital platform that helps women quickly seek assistance, share their location, report incidents, and improve personal safety through technology.
 
-- Enhance women's safety using technology.
-- Provide instant SOS emergency alerts.
-- Enable real-time location tracking.
-- Facilitate incident reporting and monitoring.
-- Generate safety analytics and reports.
-- Improve emergency response and decision-making.
+PROJECT OVERVIEW
 
-✨ Features
+The Women Safety Analytics System is a web-based application designed to enhance women's safety through real-time emergency support and safety monitoring. The system enables users to send SOS alerts, share live location details with trusted contacts, report incidents, receive emergency notifications, and access safety-related information. Administrators can monitor incidents, analyze safety trends, and generate reports to improve security awareness and emergency response.
 
-- User Registration and Secure Login.
-- SOS Emergency Alert System.
-- Real-Time Location Tracking.
-- Incident Reporting and Management.
-- Emergency Contact Notification.
-- Safety Analytics Dashboard.
-- Admin Monitoring Panel.
-- Report Generation and Analysis.
+PROJECT OBJECTIVES
 
-📊 Modules
+Main Objective
 
-User Management
+To develop a secure and user-friendly Women Safety Analytics System that provides emergency assistance, location tracking, incident reporting, and safety analytics for women.
+
+Specific Objectives
+
+- Enable user registration and authentication.
+- Manage emergency contacts.
+- Provide one-click SOS alert functionality.
+- Track and share live user location.
+- Allow users to report safety incidents.
+- Generate notifications and emergency alerts.
+- Maintain incident history and reports.
+- Provide analytics and safety statistics.
+- Ensure privacy and security of user data.
+
+MODULE LIST
+
+User Module
+
+The User Module provides functionalities that allow women users to access safety features.
+
+Features
 
 - User Registration
 - User Login
 - Profile Management
-
-SOS Alert Module
-
-- Emergency SOS Trigger
-- Alert Notifications
-- Emergency Response Tracking
-
-Location Tracking Module
-
-- Real-Time GPS Tracking
-- Location History Management
-
-Incident Reporting Module
-
-- Report Safety Incidents
-- Upload Incident Details
-- Incident Monitoring
-
-Emergency Contact Module
-
-- Add and Manage Emergency Contacts
-- Instant Contact Notification
-
-Analytics Dashboard
-
-- Incident Statistics
-- Safety Trend Analysis
-- Graphical Reports
+- Emergency Contact Management
+- SOS Alert Activation
+- Location Tracking
+- Incident Reporting
+- Notification Viewing
+- Safety Report Viewing
 
 Admin Module
 
+The Admin Module manages the overall system and safety monitoring.
+
+Features
+
+- Admin Login
 - User Management
-- Incident Monitoring
-- Report Generation
+- Incident Management
+- Notification Management
+- Analytics Report Generation
+- System Monitoring
 
-📋 Parameters Managed
+CRUD APIs
 
-- User Information
+User APIs
+
+Create
+
+- Register User
+- Add Emergency Contact
+- Create SOS Alert
+- Submit Incident Report
+
+Read
+
+- View User Profile
+- View Emergency Contacts
+- View Incident History
+- View Notifications
+
+Update
+
+- Update Profile
+- Update Emergency Contact
+
+Delete
+
+- Delete Emergency Contact
+- Delete User Account
+
+TABLE LIST
+
+User
+
+Field| Type
+user_id| INT
+name| VARCHAR
+email| VARCHAR
+password| VARCHAR
+phone| VARCHAR
+
+Emergency_Contact
+
+Field| Type
+contact_id| INT
+user_id| INT
+contact_name| VARCHAR
+contact_phone| VARCHAR
+
+SOS_Alert
+
+Field| Type
+alert_id| INT
+user_id| INT
+alert_time| DATETIME
+status| VARCHAR
+
+Incident_Report
+
+Field| Type
+report_id| INT
+user_id| INT
+incident_type| VARCHAR
+description| TEXT
+
+Location_History
+
+Field| Type
+location_id| INT
+user_id| INT
+latitude| DECIMAL
+longitude| DECIMAL
+
+Notification
+
+Field| Type
+notification_id| INT
+user_id| INT
+message| TEXT
+status| VARCHAR
+
+ER DIAGRAM DESIGN
+
+Entities
+
+- USER
+- EMERGENCY_CONTACT
+- SOS_ALERT
+- INCIDENT_REPORT
+- LOCATION_HISTORY
+- NOTIFICATION
+- ADMIN
+
+Relationships
+
+- USER manages EMERGENCY_CONTACT
+- USER creates SOS_ALERT
+- USER submits INCIDENT_REPORT
+- USER generates LOCATION_HISTORY
+- USER receives NOTIFICATION
+- ADMIN manages USERS
+- ADMIN monitors INCIDENT_REPORTS
+- ADMIN sends NOTIFICATIONS
+
+USE CASE DIAGRAM
+
++----------------------+
+| Women Safety System  |
++----------------------+
+
+USER
+ ├── Register
+ ├── Login
+ ├── Manage Profile
+ ├── Add Emergency Contact
+ ├── Send SOS Alert
+ ├── Share Location
+ ├── Report Incident
+ ├── View Notifications
+ ├── View Reports
+ └── Logout
+
+ADMIN
+ ├── Login
+ ├── Manage Users
+ ├── Manage Incidents
+ ├── Send Notifications
+ ├── View Analytics
+ ├── Monitor Activities
+ └── Logout
+
+SQL SCHEMA CREATION
+
+User Table
+
+CREATE TABLE User (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    phone VARCHAR(15)
+);
+
+Emergency_Contact Table
+
+CREATE TABLE Emergency_Contact (
+    contact_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    contact_name VARCHAR(100),
+    contact_phone VARCHAR(15),
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
+);
+
+SOS_Alert Table
+
+CREATE TABLE SOS_Alert (
+    alert_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    alert_time DATETIME,
+    status VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
+);
+
+Incident_Report Table
+
+CREATE TABLE Incident_Report (
+    report_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    incident_type VARCHAR(100),
+    description TEXT,
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
+);
+
+PAGE LAYOUTS
+
+Home Page
+
+- Welcome Message
+- About System
+- Login Button
+- Register Button
+
+Dashboard
+
+- SOS Alert Section
 - Emergency Contacts
-- Location Data
-- SOS Alerts
 - Incident Reports
 - Notifications
+- Safety Statistics
+
+Profile Page
+
+- User Information
+- Contact Details
+- Activity History
+
+Admin Dashboard
+
+- User Management
+- Incident Monitoring
+- Notification Management
 - Analytics Reports
 
-🛠️ Technologies Used
+UI SCREENS
 
-Frontend
+- Login Screen
+- Registration Screen
+- User Dashboard
+- Emergency Contact Screen
+- SOS Alert Screen
+- Incident Reporting Screen
+- Notification Screen
+- Profile Screen
+- Admin Dashboard
 
-- React.js
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
+UI PROTOTYPE
 
-Backend
+Navigation Flow
 
-- Node.js
-- Express.js
-
-Database
-
-- MySQL
-
-Tools
-
-- VS Code
-- GitHub
-- Postman
-
-APIs
-
-- Google Maps API
-- Geolocation API
-
-🤖 System Workflow
-
-1. User Registration and Login
-2. Emergency Contact Setup
-3. Location Tracking Activation
-4. SOS Alert Generation
-5. Incident Reporting
-6. Notification Delivery
-7. Analytics Processing
-8. Report Generation
-
-📂 Database Tables
-
-- Users
-- Emergency_Contacts
-- SOS_Alerts
-- Location_History
-- Incident_Reports
-- Notifications
-- Admin
-- Analytics_Reports
-
-🚀 Future Enhancements
-
-- AI-Based Threat Prediction.
-- Voice Activated SOS Alerts.
-- Integration with Police Emergency Services.
-- Mobile Application Development.
-- Smart Wearable Device Integration.
-- Machine Learning-Based Safety Analysis.
-
-🌱 Benefits
-
-- Improves women's personal safety.
-- Enables quick emergency response.
-- Provides real-time location sharing.
-- Helps identify high-risk areas.
-- Enhances security awareness.
-- Reduces response time during emergencies.
-- Supports data-driven safety decisions.
-
-📈 Expected Outcome
-
-The Women Safety Analytics System provides a reliable platform for emergency assistance and safety monitoring. By combining SOS alerts, location tracking, incident reporting, and analytics, the system helps protect women from safety threats while improving emergency response and overall security management.
-
-⭐ Support
-
-If you found this project useful or interesting, please consider giving it a ⭐ on GitHub. Your support and feedback are greatly appreciated and help motivate future improvements.
-
-Thank you for visiting this repository! 👩‍🦰🛡️🚀
+Home
+ │
+ ├── Login
+ │      │
+ │      └── Dashboard
+ │             │
+ │             ├── Emergency Contacts
+ │             ├── SOS Alert
+ │             ├── Incident Report
+ │             ├── Notifications
+ │             └── Profile
+ │
+ └── Register
