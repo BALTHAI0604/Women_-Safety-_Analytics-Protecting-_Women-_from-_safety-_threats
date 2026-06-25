@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Women Safety Analytics - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            border: 1px solid black;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Women Safety Analytics Dashboard</h2>
+
+    <div class="box">
+        <h3>Welcome User</h3>
+        <p>Stay safe and connected.</p>
+    </div>
+
+    <div class="box">
+        <h3>SOS Emergency Alert</h3>
+        <button>Send SOS Alert</button>
+    </div>
+
+    <div class="box">
+        <h3>Current Location</h3>
+        <p>Location Tracking Enabled</p>
+    </div>
+
+    <div class="box">
+        <h3>Emergency Contacts</h3>
+        <p>Manage your emergency contacts.</p>
+    </div>
+
+    <div class="box">
+        <h3>Incident Reports</h3>
+        <p>View and report safety incidents.</p>
+    </div>
+
+    <div class="box">
+        <h3>Notifications</h3>
+        <p>No new notifications.</p>
+    </div>
+
+    <div class="box">
+        <a href="#">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>
