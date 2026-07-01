@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Women Safety Analytics - Authentication</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background:#f4f4f4;
+        }
+
+        .container{
+            width:400px;
+            margin:40px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h2{
+            text-align:center;
+            color:#e91e63;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:#e91e63;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        hr{
+            margin:30px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>User Registration</h2>
+
+    <input type="text" id="name"
+           placeholder="Full Name">
+
+    <input type="email" id="regEmail"
+           placeholder="Email">
+
+    <input type="password" id="regPassword"
+           placeholder="Password">
+
+    <button onclick="register()">
+        Register
+    </button>
+
+    <hr>
+
+    <h2>User Login</h2>
+
+    <input type="email" id="loginEmail"
+           placeholder="Email">
+
+    <input type="password" id="loginPassword"
+           placeholder="Password">
+
+    <button onclick="login()">
+        Login
+    </button>
+
+</div>
+
+<script>
+
+function register(){
+
+    let user = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("regEmail").value,
+        password: document.getElementById("regPassword").value
+    };
+
+    localStorage.setItem(
+        "user",
+        JSON.stringify(user)
+    );
+
+    alert("Registration Successful");
+}
+
+function login(){
+
+    let email =
+        document.getElementById("loginEmail").value;
+
+    let password =
+        document.getElementById("loginPassword").value;
+
+    let user =
+        JSON.parse(localStorage.getItem("user"));
+
+    if(!user){
+        alert("Please Register First");
+        return;
+    }
+
+    if(
+        email === user.email &&
+        password === user.password
+    ){
+        alert("Login Successful");
+
+        window.location =
+        "dashboard.html";
+    }
+    else{
+        alert("Invalid Email or Password");
+    }
+}
+
+</script>
+
+</body>
+</html>
