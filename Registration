@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Women Safety Analytics - Registration</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+}
+
+.container{
+width:400px;
+margin:50px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+h2{
+text-align:center;
+color:#e91e63;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#e91e63;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>User Registration</h2>
+
+<input type="text" id="name"
+placeholder="Full Name">
+
+<input type="email" id="email"
+placeholder="Email">
+
+<input type="text" id="phone"
+placeholder="Phone Number">
+
+<textarea id="address"
+placeholder="Address"></textarea>
+
+<input type="password"
+id="password"
+placeholder="Password">
+
+<input type="password"
+id="cpassword"
+placeholder="Confirm Password">
+
+<button onclick="register()">
+Register
+</button>
+
+<p>
+Already have an account?
+<a href="login.html">
+Login Here
+</a>
+</p>
+
+</div>
+
+<script src="auth.js"></script>
+
+</body>
+</html>
