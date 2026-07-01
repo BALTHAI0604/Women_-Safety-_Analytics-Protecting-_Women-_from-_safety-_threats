@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women Safety Analytics</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f4f4f4;
+}
+
+nav{
+background:#e91e63;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.page{
+display:none;
+padding:30px;
+}
+
+.active{
+display:block;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+box-shadow:0 0 10px gray;
+}
+
+h1,h2{
+text-align:center;
+color:#e91e63;
+margin-bottom:20px;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border:1px solid gray;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#e91e63;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.dashboard-box{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 0 5px gray;
+}
+
+.sos{
+background:red;
+}
+
+.hero{
+text-align:center;
+padding:50px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.hero p{
+font-size:18px;
+margin-top:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('register')">Register</a>
+<a onclick="showPage('login')">Login</a>
+<a id="dashLink" onclick="showPage('dashboard')" style="display:none">Dashboard</a>
+<a id="logoutLink" onclick="logout()" style="display:none">Logout</a>
+</nav>
+
+<!-- HOME -->
+
+<div id="home" class="page active">
+
+<div class="hero">
+
+<h1>Women Safety Analytics</h1>
+
+<p>
+A smart platform to protect women using emergency alerts,
+location tracking and incident reporting.
+</p>
+
+<br>
+
+<button onclick="showPage('register')">
+Get Started
+</button>
+
+</div>
+
+</div>
+
+<!-- REGISTER -->
+
+<div id="register" class="page">
+
+<div class="card">
+
+<h2>User Registration</h2>
+
+<input type="text" id="name"
+placeholder="Full Name">
+
+<input type="email" id="email"
+placeholder="Email">
+
+<input type="text" id="phone"
+placeholder="Phone Number">
+
+<textarea id="address"
+placeholder="Address"></textarea>
+
+<input type="password" id="password"
+placeholder="Password">
+
+<input type="password" id="cpassword"
+placeholder="Confirm Password">
+
+<button onclick="register()">
+Register
+</button>
+
+</div>
+
+</div>
+
+<!-- LOGIN -->
+
+<div id="login" class="page">
+
+<div class="card">
+
+<h2>User Login</h2>
+
+<input type="email" id="loginEmail"
+placeholder="Email">
+
+<input type="password"
+id="loginPassword"
+placeholder="Password">
+
+<button onclick="login()">
+Login
+</button>
+
+</div>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard" class="page">
+
+<h2>Women Safety Dashboard</h2>
+
+<div class="dashboard-box">
+<h3 id="welcome">Welcome User</h3>
+<p>Stay Safe and Connected.</p>
+</div>
+
+<div class="dashboard-box">
+<h3>SOS Emergency Alert</h3>
+
+<button class="sos"
+onclick="sendSOS()">
+Send SOS Alert
+</button>
+
+</div>
+
+<div class="dashboard-box">
+<h3>Current Location</h3>
+<p>Location Tracking Enabled</p>
+</div>
+
+<div class="dashboard-box">
+<h3>Emergency Contacts</h3>
+
+<input type="text"
+placeholder="Add Emergency Contact">
+
+<button>
+Save Contact
+</button>
+
+</div>
+
+<div class="dashboard-box">
+
+<h3>Report Incident</h3>
+
+<textarea id="incident"
+placeholder="Enter incident details"></textarea>
+
+<button onclick="reportIncident()">
+Submit Report
+</button>
+
+</div>
+
+<div class="dashboard-box">
+
+<h3>Notifications</h3>
+
+<p id="notification">
+No new notifications.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function showPage(page){
+
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document.getElementById(page)
+.classList.add("active");
+
+}
+
+function register(){
+
+let user={
+name:document.getElementById("name").value,
+email:document.getElementById("email").value,
+phone:document.getElementById("phone").value,
+address:document.getElementById("address").value,
+password:document.getElementById("password").value
+};
+
+let cpass=
+document.getElementById("cpassword").value;
+
+if(user.password!=cpass){
+alert("Passwords do not match");
+return;
+}
+
+localStorage.setItem(
+"user",
+JSON.stringify(user)
+);
+
+alert("Registration Successful");
+
+showPage("login");
+
+}
+
+function login(){
+
+let email=
+document.getElementById("loginEmail").value;
+
+let password=
+document.getElementById("loginPassword").value;
+
+let user=
+JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+alert("Please Register First");
+return;
+}
+
+if(
+email==user.email &&
+password==user.password
+){
+
+sessionStorage.setItem(
+"login","true"
+);
+
+document.getElementById("welcome")
+.innerHTML=
+"Welcome " + user.name;
+
+document.getElementById("dashLink")
+.style.display="inline";
+
+document.getElementById("logoutLink")
+.style.display="inline";
+
+showPage("dashboard");
+
+}
+else{
+alert("Invalid Login");
+}
+
+}
+
+function logout(){
+
+sessionStorage.removeItem("login");
+
+document.getElementById("dashLink")
+.style.display="none";
+
+document.getElementById("logoutLink")
+.style.display="none";
+
+showPage("home");
+
+}
+
+function sendSOS(){
+
+document.getElementById("notification")
+.innerHTML=
+"🚨 SOS Alert Sent Successfully!";
+
+alert("Emergency Alert Sent!");
+
+}
+
+function reportIncident(){
+
+let incident=
+document.getElementById("incident").value;
+
+if(incident==""){
+alert("Enter Incident Details");
+return;
+}
+
+document.getElementById("notification")
+.innerHTML=
+"Incident Report Submitted Successfully.";
+
+alert("Incident Report Submitted");
+
+document.getElementById("incident").value="";
+
+}
+
+</script>
+
+</body>
+</html>
