@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Women Safety Analytics Dashboard</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+}
+
+.container{
+width:700px;
+margin:30px auto;
+}
+
+.box{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 0 5px gray;
+}
+
+h2{
+text-align:center;
+color:#e91e63;
+}
+
+button{
+padding:10px 20px;
+background:red;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Women Safety Dashboard</h2>
+
+<div class="box">
+<h3 id="welcome">
+Welcome User
+</h3>
+</div>
+
+<div class="box">
+<h3>SOS Emergency Alert</h3>
+
+<button onclick="sendSOS()">
+Send SOS Alert
+</button>
+</div>
+
+<div class="box">
+<h3>Current Location</h3>
+<p>Location Tracking Enabled</p>
+</div>
+
+<div class="box">
+<h3>Emergency Contacts</h3>
+
+<input type="text"
+placeholder="Add Contact">
+
+<button>
+Save Contact
+</button>
+</div>
+
+<div class="box">
+<h3>Incident Report</h3>
+
+<textarea id="incident"
+placeholder="Enter Incident"></textarea>
+
+<button onclick="reportIncident()">
+Submit
+</button>
+</div>
+
+<div class="box">
+<h3>Notifications</h3>
+
+<p id="notification">
+No New Notifications
+</p>
+</div>
+
+<div class="box">
+<a href="login.html">
+Logout
+</a>
+</div>
+
+</div>
+
+<script>
+
+let user=
+JSON.parse(localStorage.getItem("user"));
+
+if(user){
+document.getElementById("welcome")
+.innerHTML="Welcome "+user.name;
+}
+
+function sendSOS(){
+
+document.getElementById(
+"notification"
+).innerHTML=
+"🚨 SOS Alert Sent Successfully";
+
+alert("Emergency Alert Sent");
+}
+
+function reportIncident(){
+
+let incident=
+document.getElementById("incident").value;
+
+if(incident==""){
+alert("Enter Incident Details");
+return;
+}
+
+document.getElementById(
+"notification"
+).innerHTML=
+"Incident Report Submitted";
+
+alert("Report Submitted");
+}
+
+</script>
+
+</body>
+</html>
