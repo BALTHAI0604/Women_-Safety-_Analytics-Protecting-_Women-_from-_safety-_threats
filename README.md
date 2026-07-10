@@ -349,4 +349,6 @@ Thank you for supporting Women Safety Analytics – Protecting Women from Safety
 
 🔗Project Explanation video link
 
-https://drive.google.com/file/d/1_gLUMR-TWbIOEhC2RGPPu7k6ALya_PzD/view?usp=drivesdk
+check it out:
+
+https://drive.google.com/file/d/1G_YtH45evR4JPc5sIhHrnR3M01pLQHzg/view?usp=drivesdk
