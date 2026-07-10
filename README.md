@@ -344,8 +344,9 @@ If you found this project useful:
 - 🍴 Fork this repository
 - 📢 Share this project
 
-Thank you for supporting Women Safety Analytics – Protecting Women from Safety Threats. 👩‍🦰🛡️🚀
+Thank you for supporting Women Safety Analytics – Protecting Women from Safety Threats. 👩‍🦰🛡️
 
+_______________________________________
 
 🔗Project Explanation video link
 
