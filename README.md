@@ -345,3 +345,8 @@ If you found this project useful:
 - 📢 Share this project
 
 Thank you for supporting Women Safety Analytics – Protecting Women from Safety Threats. 👩‍🦰🛡️🚀
+
+
+🔗Project Explanation video link
+
+https://drive.google.com/file/d/1_gLUMR-TWbIOEhC2RGPPu7k6ALya_PzD/view?usp=drivesdk
