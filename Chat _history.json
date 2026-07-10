@@ -1,0 +1,52 @@
+[
+  {
+    "username": "anushya",
+    "user_message": "Hi",
+    "bot_response": "Hello! Welcome to the Women Safety Analytics System. How can I help you?"
+  },
+  {
+    "username": "ganga",
+    "user_message": "How do I add an emergency contact?",
+    "bot_response": "Go to the Profile section, select Emergency Contacts, and add the phone numbers of your trusted contacts."
+  },
+  {
+    "username": "dharani",
+    "user_message": "How do I send an SOS alert?",
+    "bot_response": "Press the SOS button to instantly send your live location and an emergency alert to your registered contacts."
+  },
+  {
+    "username": "maha",
+    "user_message": "What should I do if I feel unsafe?",
+    "bot_response": "Move to a safe place if possible, call emergency services, and use the SOS feature to alert your emergency contacts."
+  },
+  {
+    "username": "mala",
+    "user_message": "Where is the nearest police station?",
+    "bot_response": "Please enable your location so I can help you find the nearest police station."
+  },
+  {
+    "username": "devi",
+    "user_message": "How can I share my live location?",
+    "bot_response": "Open the Live Location feature and tap Share to send your current location to your emergency contacts."
+  },
+  {
+    "username": "kannan",
+    "user_message": "What is the women helpline number?",
+    "bot_response": "The Women Helpline number is 181. For emergencies, you can also call 112."
+  },
+  {
+    "username": "rama",
+    "user_message": "How can I report harassment?",
+    "bot_response": "Go to the Report Incident page, fill in the details, and submit your complaint."
+  },
+  {
+    "username": "siva",
+    "user_message": "Is my personal information secure?",
+    "bot_response": "Yes. Your personal information is stored securely and is used only for safety-related services."
+  },
+  {
+    "username": "priya",
+    "user_message": "Thank you",
+    "bot_response": "You're welcome! Stay safe. We are always here to help."
+  }
+]
